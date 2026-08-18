@@ -31,7 +31,7 @@ import { z } from "zod";
 // ── data loading ─────────────────────────────────────────────────────────────
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_PATH = join(__dirname, "../../dio_explorer/data/trilhas_dio.json");
+const DATA_PATH = join(__dirname, "../data/trilhas_dio.json");
 
 interface Trilha {
   id: number;

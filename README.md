@@ -1,29 +1,58 @@
-# DIO Explorer — Slash Commands
+# DIO Explorer
 
-Coleção de scripts CLI que simulam slash commands para explorar a plataforma DIO.
+Coleção de scripts CLI + servidor MCP que simulam slash commands para explorar a plataforma DIO.
 
 ## Estrutura
 
 ```
-dio_explorer/
-├── commands/
-│   ├── trilha.js        # /trilha <tecnologia>
-│   ├── desafio.js       # /desafio <nivel> <tecnologia>
-│   └── certificado.js   # /certificado "<nome>" <tecnologia>
-├── data/
-│   └── trilhas_dio.json # banco de dados das trilhas
-├── src/
-│   └── utils.js         # helpers compartilhados
-├── docs/                # (reservado para documentação extra)
-├── mcp/                 # (reservado para integração MCP)
-└── certificados/        # certificados gerados (criado automaticamente)
+projeto_final_dio_bob/
+├── README.md
+├── DOCUMENTACAO.md              ← documentação completa do projeto
+├── hello-world.md
+│
+├── .bob/
+│   ├── mcp.json                 ← registro do servidor MCP dio-explorer
+│   └── skills/
+│       ├── trilha/SKILL.md      ← skill: responder /trilha
+│       ├── desafio/SKILL.md     ← skill: responder /desafio
+│       └── certificado/SKILL.md ← skill: responder /certificado
+│
+└── dio_explorer/
+    ├── package.json             ← dependências (Jest 29) + scripts de teste
+    ├── src/
+    │   └── utils.js             ← helpers compartilhados (loadData, findTrilhas, …)
+    ├── commands/
+    │   ├── trilha.js            ← CLI: /trilha <tecnologia>
+    │   ├── desafio.js           ← CLI: /desafio <nivel> <tecnologia>
+    │   └── certificado.js       ← CLI: /certificado "<nome>" <tecnologia>
+    ├── data/
+    │   └── trilhas_dio.json     ← banco de dados com 32 trilhas DIO
+    ├── tests/
+    │   ├── utils.test.js
+    │   ├── trilha.test.js
+    │   ├── desafio.test.js
+    │   └── certificado.test.js
+    ├── certificados/            ← arquivos .md gerados pelo /certificado
+    ├── docs/
+    │   └── test-results.txt     ← relatório completo de testes
+    └── mcp/
+        ├── package.json
+        ├── tsconfig.json
+        ├── src/index.ts         ← fonte TypeScript do servidor MCP
+        └── build/index.js       ← servidor MCP compilado (ESM, stdio)
 ```
+
+---
+
+## Pré-requisitos
+
+- Node.js 14+
 
 ---
 
 ## `/trilha` — Plano de Estudos
 
-Busca uma ou mais trilhas da DIO pela tecnologia e exibe o plano de estudos completo com módulos, badges e informações de promoção.
+Busca trilhas da DIO pela tecnologia e exibe o plano de estudos completo com módulos, badges e informações de promoção.
 
 **Uso:**
 ```bash
@@ -57,6 +86,7 @@ node dio_explorer/commands/desafio.js <nivel> <tecnologia>
 ```
 
 **Níveis aceitos:**
+
 | Alias | Nível |
 |-------|-------|
 | `basico`, `básico`, `basic`, `iniciante` | 🟢 Básico |
@@ -124,9 +154,73 @@ Exemplo: `ana-silva-react.md`
 
 ---
 
-## Pré-requisitos
+## Testes
 
-- Node.js 14+ (sem dependências externas — apenas módulos nativos)
+```bash
+cd dio_explorer
+npx jest --coverage   # relatório completo com cobertura
+npm run test:ci       # modo CI (sem UI)
+```
+
+**90 testes · 4 suítes · cobertura 100% do módulo `src/utils.js`**
+
+| Arquivo de Teste | Testes |
+|------------------|--------|
+| `utils.test.js` | 26 |
+| `trilha.test.js` | 18 |
+| `desafio.test.js` | 29 |
+| `certificado.test.js` | 17 |
+
+---
+
+## Servidor MCP (`dio-explorer`)
+
+O servidor MCP expõe as três capacidades do DIO Explorer como ferramentas nativas do Bob, sem necessidade de usar o terminal.
+
+**Configuração (`.bob/mcp.json`):**
+```json
+{
+  "mcpServers": {
+    "dio-explorer": {
+      "command": "node",
+      "args": ["C:\\...\\dio_explorer\\mcp\\build\\index.js"]
+    }
+  }
+}
+```
+
+**Ferramentas disponíveis:**
+
+| Ferramenta MCP | Parâmetros | Retorno |
+|----------------|------------|---------|
+| `mcp__dio-explorer__trilha` | `tecnologia: string` | Plano de estudos Markdown |
+| `mcp__dio-explorer__desafio` | `nivel: enum, tecnologia: string` | Desafio com requisitos, dica e XP |
+| `mcp__dio-explorer__certificado` | `nome: string, tecnologia: string` | Certificado Markdown com ID único |
+
+**Recurso MCP:**
+
+| URI | Tipo | Descrição |
+|-----|------|-----------|
+| `dio://trilhas` | `application/json` | Catálogo completo das 32 trilhas |
+
+**Construir o servidor:**
+```bash
+cd dio_explorer/mcp
+npm install
+npm run build   # compila src/index.ts → build/index.js
+```
+
+---
+
+## Bob Skills
+
+Três skills ensinam o Bob a responder aos slash commands diretamente no chat:
+
+| Skill | Ativação | Arquivo |
+|-------|----------|---------|
+| `trilha` | `/trilha <tecnologia>` | `.bob/skills/trilha/SKILL.md` |
+| `desafio` | `/desafio` | `.bob/skills/desafio/SKILL.md` |
+| `certificado` | `/certificado` | `.bob/skills/certificado/SKILL.md` |
 
 ---
 

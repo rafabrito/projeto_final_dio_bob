@@ -28,7 +28,7 @@ import { join, dirname } from "node:path";
 import { z } from "zod";
 // ── data loading ─────────────────────────────────────────────────────────────
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_PATH = join(__dirname, "../../dio_explorer/data/trilhas_dio.json");
+const DATA_PATH = join(__dirname, "../data/trilhas_dio.json");
 function loadData() {
     const raw = readFileSync(DATA_PATH, "utf-8");
     return JSON.parse(raw);
