@@ -47,7 +47,7 @@ O projeto entrega três capacidades principais acessíveis tanto pela **linha de
 ```
 projeto_final_dio_bob/
 ├── README.md                         ← documentação rápida dos comandos CLI
-├── hello-world.md                    ← primeiro arquivo criado (marco inicial)
+├── DOCUMENTACAO.md                   ← este documento
 │
 ├── .bob/                             ← configuração do agente Bob
 │   ├── mcp.json                      ← registro do servidor MCP dio-explorer
@@ -56,28 +56,31 @@ projeto_final_dio_bob/
 │       ├── desafio/SKILL.md          ← instrução: como responder /desafio
 │       └── certificado/SKILL.md      ← instrução: como responder /certificado
 │
-├── dio_explorer/                     ← pacote Node.js principal
-│   ├── package.json                  ← dependências (Jest 29) + scripts de teste
-│   ├── src/
-│   │   └── utils.js                  ← helpers compartilhados (loadData, findTrilhas, …)
-│   ├── commands/
-│   │   ├── trilha.js                 ← CLI: /trilha
-│   │   ├── desafio.js                ← CLI: /desafio
-│   │   └── certificado.js            ← CLI: /certificado
-│   ├── data/
-│   │   └── trilhas_dio.json          ← banco de dados com 32 trilhas DIO
-│   ├── tests/
-│   │   ├── utils.test.js             ← 26 testes · src/utils.js
-│   │   ├── trilha.test.js            ← 18 testes · commands/trilha.js
-│   │   ├── desafio.test.js           ← 29 testes · commands/desafio.js
-│   │   └── certificado.test.js       ← 17 testes · commands/certificado.js
-│   ├── certificados/                 ← arquivos .md gerados pelo /certificado
-│   └── docs/
-│       └── test-results.txt          ← relatório completo de testes e execuções
-│
-└── mcp/
-    └── build/
-        └── index.js                  ← MCP Server (ESM, stdio + HTTP opcional)
+└── dio_explorer/                     ← pacote Node.js principal
+    ├── package.json                  ← dependências (Jest 29) + scripts de teste
+    ├── src/
+    │   └── utils.js                  ← helpers compartilhados (loadData, findTrilhas, …)
+    ├── commands/
+    │   ├── trilha.js                 ← CLI: /trilha
+    │   ├── desafio.js                ← CLI: /desafio
+    │   └── certificado.js            ← CLI: /certificado
+    ├── data/
+    │   └── trilhas_dio.json          ← banco de dados com 32 trilhas DIO
+    ├── tests/
+    │   ├── utils.test.js             ← 26 testes · src/utils.js
+    │   ├── trilha.test.js            ← 18 testes · commands/trilha.js
+    │   ├── desafio.test.js           ← 29 testes · commands/desafio.js
+    │   └── certificado.test.js       ← 17 testes · commands/certificado.js
+    ├── certificados/                 ← arquivos .md gerados pelo /certificado
+    ├── docs/
+    │   └── test-results.txt          ← relatório completo de testes e execuções
+    └── mcp/                          ← sub-pacote do servidor MCP (TypeScript/ESM)
+        ├── package.json              ← dependências (@modelcontextprotocol/sdk, zod)
+        ├── tsconfig.json             ← configuração TypeScript
+        ├── src/
+        │   └── index.ts              ← fonte TypeScript do MCP Server
+        └── build/
+            └── index.js              ← MCP Server compilado (ESM, stdio + HTTP opcional)
 ```
 
 ### Fluxo de dados
@@ -86,7 +89,7 @@ Todos os caminhos convergem para o mesmo dado central: `dio_explorer/data/trilha
 
 | Via | Ponto de entrada | Consumidor |
 |---|---|---|
-| CLI direto | `node commands/*.js` | Terminal / scripts |
+| CLI direto | `node dio_explorer/commands/*.js` | Terminal / scripts |
 | Bob Skills | `/trilha`, `/desafio`, `/certificado` no chat | Bob AI Agent (lê o JSON via `read_file`) |
 | MCP Tools | Ferramentas `mcp__dio-explorer__trilha` etc. | Bob Agent (chama o servidor MCP via stdio) |
 
@@ -96,8 +99,9 @@ Todos os caminhos convergem para o mesmo dado central: `dio_explorer/data/trilha
 
 | Componente | Detalhe |
 |---|---|
-| **Runtime** | Node.js 14+ (CJS para CLI, ESM para MCP server) |
-| **Testes** | Jest 29 · cobertura ≥70% configurada em `package.json` |
+| **Runtime** | Node.js (CJS para CLI, ESM para MCP server) |
+| **Testes** | Jest 29 · cobertura ≥70% configurada em `dio_explorer/package.json` |
+| **Linguagem MCP** | TypeScript 5 · compilado para ESM via `tsc` (tsconfig em `dio_explorer/mcp/`) |
 | **MCP SDK** | `@modelcontextprotocol/sdk` · McpServer · StdioServerTransport |
 | **Validação** | Zod · schemas de input para as 3 ferramentas MCP |
 | **Sem framework web** | Zero dependências externas na CLI · apenas módulos nativos Node.js |
@@ -222,7 +226,7 @@ O servidor MCP (_Model Context Protocol_) permite que o Bob use as capacidades d
   "mcpServers": {
     "dio-explorer": {
       "command": "node",
-      "args": ["C:\\...\\mcp\\build\\index.js"]
+      "args": ["C:\\Users\\User\\Documents\\projeto_final_dio_bob\\dio_explorer\\mcp\\build\\index.js"]
     }
   }
 }
