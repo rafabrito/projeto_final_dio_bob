@@ -8,7 +8,6 @@ Coleção de scripts CLI + servidor MCP que simulam slash commands para explorar
 projeto_final_dio_bob/
 ├── README.md
 ├── DOCUMENTACAO.md              ← documentação completa do projeto
-├── hello-world.md
 │
 ├── .bob/
 │   ├── mcp.json                 ← registro do servidor MCP dio-explorer
