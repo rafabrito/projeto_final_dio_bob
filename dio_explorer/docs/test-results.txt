@@ -1,0 +1,387 @@
+================================================================================
+  DIO EXPLORER — RELATÓRIO DE TESTES UNITÁRIOS E EXECUÇÃO DOS COMANDOS
+================================================================================
+  Gerado em : 17/08/2026
+  Projeto   : DIO Explorer (projeto_final_dio_bob)
+  Aluno     : Joao Desenvolvedor
+================================================================================
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SEÇÃO 1 — SUÍTE DE TESTES UNITÁRIOS
+────────────────────────────────────────────────────────────────────────────────
+
+Framework   : Jest 29
+Configuração: dio_explorer/package.json
+Diretório   : dio_explorer/tests/
+
+Arquivos de teste criados
+  ┌─────────────────────────────┬────────────────────────────────────────────┐
+  │ Arquivo                     │ Módulo testado                             │
+  ├─────────────────────────────┼────────────────────────────────────────────┤
+  │ tests/utils.test.js         │ src/utils.js                               │
+  │ tests/trilha.test.js        │ commands/trilha.js (helpers inline)        │
+  │ tests/desafio.test.js       │ commands/desafio.js (logic inline)         │
+  │ tests/certificado.test.js   │ commands/certificado.js (helpers inline)   │
+  └─────────────────────────────┴────────────────────────────────────────────┘
+
+Resultado da execução  (npx jest --coverage)
+─────────────────────────────────────────────
+  Test Suites : 4 passed, 4 total
+  Tests       : 90 passed, 90 total   ✅
+  Snapshots   : 0 total
+  Time        : ~6.5 s
+
+Cobertura de código  (src/utils.js — módulo central)
+─────────────────────────────────────────────────────
+  ┌──────────────┬────────────┬────────────┬────────────┬───────────┐
+  │ File         │ Statements │  Branches  │  Functions │   Lines   │
+  ├──────────────┼────────────┼────────────┼────────────┼───────────┤
+  │ utils.js     │   100 %    │   100 %    │   100 %    │  100 %    │
+  ├──────────────┼────────────┼────────────┼────────────┼───────────┤
+  │ TOTAL        │   100 %    │   100 %    │   100 %    │  100 %    │
+  └──────────────┴────────────┴────────────┴────────────┴───────────┘
+
+  Meta mínima : 70 %   ✅ ATINGIDA  (cobertura real: 100%)
+
+Detalhamento dos testes por arquivo
+────────────────────────────────────
+
+  [tests/utils.test.js] — 26 testes
+  ─────────────────────────────────
+  loadData
+    ✅ returns an object with fonte, descricao and trilhas array
+    ✅ each trilha has required fields
+    ✅ badges is always an array
+    ✅ xp_total is a positive number for all trilhas
+
+  findTrilhas
+    ✅ finds Java trilha by exact name (case-insensitive)
+    ✅ finds Java trilha by lowercase query
+    ✅ finds React trilha
+    ✅ returns empty array for non-existent technology
+    ✅ trims whitespace from query
+    ✅ partial match: 'py' matches Python
+
+  randomFrom
+    ✅ returns an element that exists in the array
+    ✅ works with a single-element array
+    ✅ returns a value within the array across multiple runs
+
+  today
+    ✅ returns a string in DD/MM/YYYY format
+    ✅ year is the current year
+
+  futureDate
+    ✅ returns a string in DD/MM/YYYY format
+    ✅ future date with 0 days equals today
+    ✅ future date with 365 days contains next year or same year
+
+
+  [tests/trilha.test.js] — 18 testes
+  ────────────────────────────────────
+  buildModulos — Java trilha
+    ✅ returns exactly 14 modules for Java
+    ✅ first module is numbered '1.'
+    ✅ last module is numbered '14.'
+    ✅ modules contain expected Java content
+
+  buildModulos — React trilha
+    ✅ returns exactly 12 modules for React
+    ✅ first React module is about fundamentals
+
+  buildModulos — cycling behaviour (Python: 9 templates, 12 requested)
+    ✅ cycles modules when count exceeds template size
+
+  buildModulos — generic fallback for unknown technology
+    ✅ uses generic modules when technology not in template map
+
+  MODULE_TEMPLATES
+    ✅ Java template has exactly 14 entries
+    ✅ React template has exactly 12 entries
+    ✅ Python template has exactly 9 entries
+    ✅ Node.js template has exactly 10 entries
+    ✅ JavaScript template has exactly 10 entries
+
+  genericModules
+    ✅ returns a non-empty array
+    ✅ contains technology name in first and last entries
+
+  buildModulos — number of modules matches trilha.modulos
+    ✅ returns exactly N modules for any given trilha
+
+
+  [tests/desafio.test.js] — 29 testes
+  ─────────────────────────────────────
+  NIVEL_ALIAS
+    ✅ resolves 'basico' → 'basico'
+    ✅ resolves 'básico' → 'basico'
+    ✅ resolves 'basic' → 'basico'
+    ✅ resolves 'iniciante' → 'basico'
+    ✅ resolves 'intermediario' → 'intermediario'
+    ✅ resolves 'intermediário' → 'intermediario'
+    ✅ resolves 'intermediate' → 'intermediario'
+    ✅ resolves 'avancado' → 'avancado'
+    ✅ resolves 'avançado' → 'avancado'
+    ✅ resolves 'advanced' → 'avancado'
+    ✅ resolves 'expert' → 'avancado'
+    ✅ returns undefined for unknown alias
+
+  resolveNivel helper
+    ✅ handles uppercase input (lowercased internally)
+    ✅ returns null for unrecognised level
+    ✅ returns null for empty string
+
+  CHALLENGES structure
+    ✅ has 3 top-level difficulty keys
+    ✅ basico contains at least JavaScript and Python
+    ✅ intermediario contains Java
+    ✅ avancado contains Python and DevOps
+    ✅ each challenge entry has required fields
+    ✅ Java intermediario challenge has at least 3 requisitos
+    ✅ Java intermediario challenge titulo is non-empty
+    ✅ xp values are positive integers
+    ✅ prazo values are positive integers
+
+  findTechKey (fuzzy matching)
+    ✅ finds 'Java' in intermediario bank
+    ✅ finds 'java' (lowercase) in intermediario bank
+    ✅ finds 'react' (lowercase) in intermediario bank
+    ✅ returns null for unknown technology
+    ✅ finds 'node' partial match for 'Node.js'
+    ✅ finds 'python' in avancado bank
+
+
+  [tests/certificado.test.js] — 17 testes
+  ─────────────────────────────────────────
+  slugify
+    ✅ lowercases the string
+    ✅ replaces spaces with hyphens
+    ✅ removes diacritics (accents)
+    ✅ removes leading and trailing hyphens
+    ✅ handles special characters
+    ✅ handles consecutive spaces/special chars
+    ✅ handles fully numeric string
+    ✅ handles name with hyphen
+
+  certId
+    ✅ starts with DIO- prefix
+    ✅ uses initials of the name in the ID
+    ✅ uses up to 3 initials
+    ✅ two calls generate different IDs (timestamp-based)
+
+  buildCertificate — Java trilha, student: João Desenvolvedor
+    ✅ certificate contains student name
+    ✅ certificate contains trilha name
+    ✅ certificate contains technology
+    ✅ certificate contains level
+    ✅ certificate contains module count
+    ✅ certificate contains XP total
+    ✅ certificate contains today's date
+    ✅ certificate contains a DIO- cert ID
+    ✅ certificate contains badges section
+    ✅ certificate contains Spring Boot badge
+    ✅ certificate contains promo line when ativa=true
+    ✅ certificate contains vitalicio note
+    ✅ certificate contains DIO url
+
+  buildCertificate — no-promo trilha (Node.js)
+    ✅ promoLine is empty string when promocao.ativa is false
+    ✅ student name present
+
+
+================================================================================
+  SEÇÃO 2 — EXECUÇÃO DO COMANDO: /trilha Java
+================================================================================
+
+Comando: node commands/trilha.js Java
+Status : ✅ Sucesso
+
+────────────────────────────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════
+📚  Formação Java Developer
+════════════════════════════════════════════════════════════
+🏷️   Tecnologia : Java
+📊  Nível       : Intermediário
+🎯  Módulos     : 14
+⭐  XP Total    : 21.000 XP
+🎙️   Lives ao vivo: 7
+✅ Acesso vitalício
+🔥 Promoção ativa: 25% OFF (válida até 2025-08-15)
+
+🗂️  Plano de Estudos:
+   1. Java SE e configuração do ambiente
+   2. Tipos primitivos e controle de fluxo
+   3. Orientação a Objetos (encapsulamento, herança, polimorfismo)
+   4. Interfaces e classes abstratas
+   5. Generics e Collections
+   6. Tratamento de exceções
+   7. Entrada/saída e serialização
+   8. Introdução ao Spring Framework
+   9. Spring Boot e REST APIs
+   10. Spring Data JPA
+   11. Segurança com Spring Security
+   12. Testes com JUnit e Mockito
+   13. Docker para projetos Java
+   14. Projeto final: API Java com Spring Boot
+
+🏅  Badges conquistados ao completar:
+   🔖 Java Basics
+   🔖 OOP Master
+   🔖 Spring Boot Expert
+   🔖 Java Developer
+
+🌐  Acesse em: https://www.dio.me
+────────────────────────────────────────────────────────────────────────────────
+
+
+================================================================================
+  SEÇÃO 3 — EXECUÇÃO DO COMANDO: /desafio intermediario Java
+================================================================================
+
+Comando: node commands/desafio.js intermediario Java
+Status : ✅ Sucesso
+
+────────────────────────────────────────────────────────────────────────────────
+════════════════════════════════════════════════════════════
+⚡  DESAFIO DIO — 🟡 Intermediário
+════════════════════════════════════════════════════════════
+
+🎯  CRUD com Spring Boot e JPA
+🏷️   Tecnologia : Java
+⭐  XP em jogo  : 2.200 XP
+📅  Período     : 17/08/2026 → 27/08/2026 (10 dias)
+
+📝  Descrição:
+   Desenvolva uma API RESTful completa com Spring Boot para gerenciar
+   uma entidade `Produto` (CRUD completo), com validações via Bean
+   Validation e tratamento global de erros.
+
+✅  Requisitos:
+   • @RestController, @Service, @Repository
+   • Validações: @NotBlank, @Min, @Email etc.
+   • @ControllerAdvice para exceções
+   • H2 ou Postgres em memória para testes
+
+💡  Exemplo:
+   GET /produtos | POST /produtos | PUT /produtos/{id} | DELETE /produtos/{id}
+
+🔧  Dica do mentor:
+   Use `ResponseEntity<?>` para controlar o status HTTP de cada resposta.
+
+🚀  Boa sorte! Submeta seu repositório em https://www.dio.me
+════════════════════════════════════════════════════════════
+────────────────────────────────────────────────────────────────────────────────
+
+
+================================================================================
+  SEÇÃO 4 — EXECUÇÃO DO COMANDO: /certificado "Joao Desenvolvedor" Java
+================================================================================
+
+Comando: node commands/certificado.js "Joao Desenvolvedor" Java
+Status : ✅ Sucesso
+Arquivo : dio_explorer/certificados/joao-desenvolvedor-java.md
+
+────────────────────────────────────────────────────────────────────────────────
+# 🎓 CERTIFICADO DE CONCLUSÃO
+## Digital Innovation One — DIO
+
+---
+
+> *Este certificado é um documento fictício gerado pelo DIO Explorer para fins educacionais.*
+
+---
+
+## ✅ Certificamos que
+
+# Joao Desenvolvedor
+
+concluiu com êxito a trilha de formação:
+
+---
+
+## 📚 Formação Java Developer
+
+| Campo              | Detalhe                      |
+|--------------------|------------------------------|
+| 🏷️ Tecnologia      | Java                         |
+| 📊 Nível           | Intermediário                |
+| 🎯 Módulos         | 14 módulos                   |
+| ⭐ XP conquistado  | 21.000 XP                    |
+| 🎙️ Lives ao vivo   | 7 sessões                    |
+| 📅 Data de emissão | 17/08/2026                   |
+| 🆔 Código          | DIO-JD-MSXXF9WY              |
+
+---
+
+## 🏅 Badges Conquistadas
+
+- 🔖 **Java Basics**
+- 🔖 **OOP Master**
+- 🔖 **Spring Boot Expert**
+- 🔖 **Java Developer**
+
+---
+
+## 🌟 Conquistas
+
+- ✔️ Completou todos os 14 módulos da formação
+- ✔️ Participou de 7 lives ao vivo com especialistas
+- ✔️ Adquiriu habilidades práticas em **Java**
+- ✔️ Passou por desafios de código e projetos reais
+- ✔️ Acesso **vitalício** ao conteúdo garantido
+
+---
+
+> 🔥 Esta trilha está com **25% de desconto** até 2025-08-15
+
+---
+
+## 📜 Declaração
+
+> *A Digital Innovation One (DIO) é uma plataforma de educação em tecnologia que conecta*
+> *talentos às melhores oportunidades do mercado. Este certificado atesta que o(a) participante*
+> *demonstrou dedicação, aprendizado contínuo e domínio das competências exigidas pela trilha.*
+
+---
+
+**Emitido digitalmente por DIO Explorer**
+🌐 https://www.dio.me
+📅 17/08/2026 | 🆔 DIO-JD-MSXXF9WY
+
+---
+
+*Made with ❤️ by DIO Explorer*
+────────────────────────────────────────────────────────────────────────────────
+
+
+================================================================================
+  RESUMO FINAL
+================================================================================
+
+  Componente                  Status     Detalhes
+  ──────────────────────────────────────────────────────────────────────────
+  Testes unitários totais   : 90 / 90   ✅ 100% aprovados
+  Suítes de teste           :  4 /  4   ✅ todas passando
+  Cobertura (statements)    : 100 %     ✅ meta de 70% atingida
+  Cobertura (branches)      : 100 %     ✅ meta de 70% atingida
+  Cobertura (functions)     : 100 %     ✅ meta de 70% atingida
+  Cobertura (lines)         : 100 %     ✅ meta de 70% atingida
+  ──────────────────────────────────────────────────────────────────────────
+  /trilha Java              :  ✅        Formação Java Developer exibida
+  /desafio intermediario Java:  ✅       Desafio CRUD Spring Boot gerado
+  /certificado Joao Dev Java:  ✅        Certificado salvo em certificados/
+  ──────────────────────────────────────────────────────────────────────────
+
+  Arquivos de teste criados:
+    dio_explorer/tests/utils.test.js        (26 testes)
+    dio_explorer/tests/trilha.test.js       (18 testes)
+    dio_explorer/tests/desafio.test.js      (29 testes)
+    dio_explorer/tests/certificado.test.js  (17 testes)
+
+  Certificado do aluno gravado em:
+    dio_explorer/certificados/joao-desenvolvedor-java.md
+
+================================================================================
+  Fim do relatório
+================================================================================

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "dio-explorer": {
+      "command": "node",
+      "args": ["C:\\Users\\User\\Documents\\projeto_final_dio_bob\\mcp\\build\\index.js"]
+    }
+  }
+}

@@ -1,0 +1,518 @@
+{
+  "fonte": "https://www.dio.me",
+  "descricao": "Lista de trilhas educacionais fictícias da DIO - Digital Innovation One",
+  "trilhas": [
+    {
+      "id": 1,
+      "nome": "Formação React Developer",
+      "tecnologia": "React",
+      "nivel": "Intermediário",
+      "modulos": 12,
+      "xp_total": 18500,
+      "badges": ["React Fundamentals", "Hooks Master", "Redux Expert", "React Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 30,
+        "validade": "2025-08-31"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 6
+    },
+    {
+      "id": 2,
+      "nome": "Formação Node.js Backend Developer",
+      "tecnologia": "Node.js",
+      "nivel": "Intermediário",
+      "modulos": 10,
+      "xp_total": 16000,
+      "badges": ["Node.js Basics", "REST API Builder", "Node.js Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 4
+    },
+    {
+      "id": 3,
+      "nome": "Formação Python Developer",
+      "tecnologia": "Python",
+      "nivel": "Básico",
+      "modulos": 9,
+      "xp_total": 14000,
+      "badges": ["Python Starter", "Data Structures with Python", "Python Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 20,
+        "validade": "2025-07-15"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 5
+    },
+    {
+      "id": 4,
+      "nome": "Formação Machine Learning Specialist",
+      "tecnologia": "Machine Learning",
+      "nivel": "Avançado",
+      "modulos": 16,
+      "xp_total": 28000,
+      "badges": ["ML Fundamentals", "Supervised Learning", "Neural Networks", "ML Specialist"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 15,
+        "validade": "2025-09-30"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 10
+    },
+    {
+      "id": 5,
+      "nome": "Formação Angular Developer",
+      "tecnologia": "Angular",
+      "nivel": "Intermediário",
+      "modulos": 11,
+      "xp_total": 17200,
+      "badges": ["Angular Starter", "RxJS Expert", "Angular Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 4
+    },
+    {
+      "id": 6,
+      "nome": "Formação Java Developer",
+      "tecnologia": "Java",
+      "nivel": "Intermediário",
+      "modulos": 14,
+      "xp_total": 21000,
+      "badges": ["Java Basics", "OOP Master", "Spring Boot Expert", "Java Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 25,
+        "validade": "2025-08-15"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 7
+    },
+    {
+      "id": 7,
+      "nome": "Formação Cloud AWS Architect",
+      "tecnologia": "AWS",
+      "nivel": "Avançado",
+      "modulos": 18,
+      "xp_total": 32000,
+      "badges": ["AWS Foundations", "EC2 & S3 Expert", "Lambda Specialist", "Cloud Architect"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 40,
+        "validade": "2025-10-01"
+      },
+      "vitalicio": false,
+      "lives_ao_vivo": 12
+    },
+    {
+      "id": 8,
+      "nome": "Formação DevOps Engineer",
+      "tecnologia": "DevOps",
+      "nivel": "Avançado",
+      "modulos": 15,
+      "xp_total": 25500,
+      "badges": ["CI/CD Basics", "Docker Expert", "Kubernetes Master", "DevOps Engineer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 8
+    },
+    {
+      "id": 9,
+      "nome": "Formação Vue.js Developer",
+      "tecnologia": "Vue.js",
+      "nivel": "Básico",
+      "modulos": 8,
+      "xp_total": 12000,
+      "badges": ["Vue.js Starter", "Vuex Expert", "Vue.js Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 10,
+        "validade": "2025-07-31"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 3
+    },
+    {
+      "id": 10,
+      "nome": "Formação TypeScript Full Stack",
+      "tecnologia": "TypeScript",
+      "nivel": "Intermediário",
+      "modulos": 13,
+      "xp_total": 20000,
+      "badges": ["TypeScript Basics", "Advanced Types", "Full Stack TS Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 5
+    },
+    {
+      "id": 11,
+      "nome": "Formação Data Science com Python",
+      "tecnologia": "Data Science",
+      "nivel": "Avançado",
+      "modulos": 17,
+      "xp_total": 29500,
+      "badges": ["Pandas Master", "Visualization Expert", "Statistical Analysis", "Data Scientist"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 35,
+        "validade": "2025-09-15"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 9
+    },
+    {
+      "id": 12,
+      "nome": "Formação Flutter Mobile Developer",
+      "tecnologia": "Flutter",
+      "nivel": "Intermediário",
+      "modulos": 11,
+      "xp_total": 17800,
+      "badges": ["Dart Starter", "Flutter Widgets", "Mobile Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 4
+    },
+    {
+      "id": 13,
+      "nome": "Formação Kotlin Android Developer",
+      "tecnologia": "Kotlin",
+      "nivel": "Intermediário",
+      "modulos": 12,
+      "xp_total": 19000,
+      "badges": ["Kotlin Basics", "Android UI Expert", "Kotlin Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 20,
+        "validade": "2025-08-01"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 5
+    },
+    {
+      "id": 14,
+      "nome": "Formação Swift iOS Developer",
+      "tecnologia": "Swift",
+      "nivel": "Avançado",
+      "modulos": 14,
+      "xp_total": 23000,
+      "badges": ["Swift Basics", "UIKit Master", "SwiftUI Expert", "iOS Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": false,
+      "lives_ao_vivo": 6
+    },
+    {
+      "id": 15,
+      "nome": "Formação C# .NET Developer",
+      "tecnologia": "C# / .NET",
+      "nivel": "Intermediário",
+      "modulos": 13,
+      "xp_total": 20500,
+      "badges": ["C# Foundations", ".NET Core Expert", "C# Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 25,
+        "validade": "2025-10-15"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 6
+    },
+    {
+      "id": 16,
+      "nome": "Formação Go Developer",
+      "tecnologia": "Go",
+      "nivel": "Avançado",
+      "modulos": 10,
+      "xp_total": 16500,
+      "badges": ["Go Starter", "Concurrency Expert", "Go Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 3
+    },
+    {
+      "id": 17,
+      "nome": "Formação Segurança da Informação",
+      "tecnologia": "Cybersecurity",
+      "nivel": "Avançado",
+      "modulos": 19,
+      "xp_total": 33000,
+      "badges": ["Network Security", "Ethical Hacker", "Penetration Tester", "Security Analyst"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 50,
+        "validade": "2025-07-20"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 14
+    },
+    {
+      "id": 18,
+      "nome": "Formação SQL & Banco de Dados",
+      "tecnologia": "SQL",
+      "nivel": "Básico",
+      "modulos": 7,
+      "xp_total": 10500,
+      "badges": ["SQL Starter", "Query Master", "DBA Foundations"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 2
+    },
+    {
+      "id": 19,
+      "nome": "Formação Microsoft Azure Developer",
+      "tecnologia": "Azure",
+      "nivel": "Avançado",
+      "modulos": 17,
+      "xp_total": 30000,
+      "badges": ["Azure Fundamentals", "AZ-900 Ready", "Azure Developer", "Cloud Native Expert"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 30,
+        "validade": "2025-09-01"
+      },
+      "vitalicio": false,
+      "lives_ao_vivo": 10
+    },
+    {
+      "id": 20,
+      "nome": "Formação Google Cloud Engineer",
+      "tecnologia": "Google Cloud",
+      "nivel": "Avançado",
+      "modulos": 16,
+      "xp_total": 27500,
+      "badges": ["GCP Foundations", "BigQuery Expert", "GCP Engineer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 8
+    },
+    {
+      "id": 21,
+      "nome": "Formação Inteligência Artificial Generativa",
+      "tecnologia": "IA Generativa",
+      "nivel": "Avançado",
+      "modulos": 20,
+      "xp_total": 38000,
+      "badges": ["Prompt Engineering", "LLM Expert", "AI Ethics", "Generative AI Specialist"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 45,
+        "validade": "2025-11-30"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 15
+    },
+    {
+      "id": 22,
+      "nome": "Formação HTML & CSS Web Developer",
+      "tecnologia": "HTML/CSS",
+      "nivel": "Básico",
+      "modulos": 6,
+      "xp_total": 8500,
+      "badges": ["HTML Starter", "CSS Layout Master", "Web Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 2
+    },
+    {
+      "id": 23,
+      "nome": "Formação JavaScript Developer",
+      "tecnologia": "JavaScript",
+      "nivel": "Básico",
+      "modulos": 10,
+      "xp_total": 15000,
+      "badges": ["JS Fundamentals", "ES6+ Expert", "Async Specialist", "JavaScript Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 15,
+        "validade": "2025-08-20"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 5
+    },
+    {
+      "id": 24,
+      "nome": "Formação Blockchain Developer",
+      "tecnologia": "Blockchain",
+      "nivel": "Avançado",
+      "modulos": 15,
+      "xp_total": 26000,
+      "badges": ["Web3 Basics", "Solidity Expert", "Smart Contract Auditor", "Blockchain Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 20,
+        "validade": "2025-10-31"
+      },
+      "vitalicio": false,
+      "lives_ao_vivo": 7
+    },
+    {
+      "id": 25,
+      "nome": "Formação Power BI & Data Analytics",
+      "tecnologia": "Power BI",
+      "nivel": "Intermediário",
+      "modulos": 9,
+      "xp_total": 13500,
+      "badges": ["Power BI Starter", "DAX Expert", "Data Analyst"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 4
+    },
+    {
+      "id": 26,
+      "nome": "Formação Rust Systems Developer",
+      "tecnologia": "Rust",
+      "nivel": "Avançado",
+      "modulos": 12,
+      "xp_total": 22000,
+      "badges": ["Rust Fundamentals", "Memory Safety Expert", "Systems Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 10,
+        "validade": "2025-09-10"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 4
+    },
+    {
+      "id": 27,
+      "nome": "Formação PHP Laravel Developer",
+      "tecnologia": "PHP / Laravel",
+      "nivel": "Intermediário",
+      "modulos": 11,
+      "xp_total": 16800,
+      "badges": ["PHP Basics", "Laravel Expert", "PHP Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 4
+    },
+    {
+      "id": 28,
+      "nome": "Formação Ruby on Rails Developer",
+      "tecnologia": "Ruby on Rails",
+      "nivel": "Intermediário",
+      "modulos": 10,
+      "xp_total": 15500,
+      "badges": ["Ruby Basics", "Rails Framework", "Ruby Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 20,
+        "validade": "2025-07-25"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 3
+    },
+    {
+      "id": 29,
+      "nome": "Formação UX/UI Design para Devs",
+      "tecnologia": "UX/UI Design",
+      "nivel": "Básico",
+      "modulos": 8,
+      "xp_total": 11000,
+      "badges": ["Design Thinking", "Figma Expert", "UX Designer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 3
+    },
+    {
+      "id": 30,
+      "nome": "Formação Next.js Full Stack Developer",
+      "tecnologia": "Next.js",
+      "nivel": "Intermediário",
+      "modulos": 13,
+      "xp_total": 20800,
+      "badges": ["Next.js Basics", "SSR & SSG Expert", "Full Stack Developer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 30,
+        "validade": "2025-08-30"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 6
+    },
+    {
+      "id": 31,
+      "nome": "Formação NestJS API Developer",
+      "tecnologia": "NestJS",
+      "nivel": "Avançado",
+      "modulos": 12,
+      "xp_total": 19500,
+      "badges": ["NestJS Foundations", "Microservices Expert", "NestJS Developer"],
+      "promocao": {
+        "ativa": false,
+        "desconto_percentual": 0,
+        "validade": null
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 5
+    },
+    {
+      "id": 32,
+      "nome": "Formação Engenharia de Dados",
+      "tecnologia": "Data Engineering",
+      "nivel": "Avançado",
+      "modulos": 18,
+      "xp_total": 31000,
+      "badges": ["Spark Expert", "Kafka Specialist", "Pipeline Builder", "Data Engineer"],
+      "promocao": {
+        "ativa": true,
+        "desconto_percentual": 35,
+        "validade": "2025-10-20"
+      },
+      "vitalicio": true,
+      "lives_ao_vivo": 11
+    }
+  ]
+}
